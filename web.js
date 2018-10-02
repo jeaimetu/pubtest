@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.post("/v1/users/{username}/link-to-eos-account", function(req, res) { 
+app.post("/v1/users/link-to-eos-account", function(req, res) { 
 
 	  var id = req.body.id;
 	  var vote = req.body.vote;
