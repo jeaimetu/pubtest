@@ -18,12 +18,12 @@ app.post("/v1/users/link-to-eos-account", function(req, res) {
 	  result = 2;
 	  result2 = 3;
 	  var body = {
-			  "result": "done",
+			  "result": "202",
 			  "balance" : result,
 			  "account" : result2
 	  };
 	  
-	  res.send("202");
+	  res.send(body);
 });
 
 app.post("/v1/users/thanks", function(req, res) { 
