@@ -94,7 +94,7 @@ app.get("/v1/users/assets", function(req, res) {
 
 	  var body = {
 			  "result": "200",
-			  "isLinkedToEosAccount" : result,
+			  "isLinkedToEosAccount" : true,
 			  "staked" : 0,
 		  	  "unstaked" : 0,
 		  	  "refund" : 0,
