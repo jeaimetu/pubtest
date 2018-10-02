@@ -13,6 +13,8 @@ app.post("/v1/users/{username}/link-to-eos-account", function(req, res) {
 	  var vote = req.body.vote;
 	  console.log("vote event", id, vote);
 	  //save this data to mongoDB//
+	  result = 2;
+	  result2 = 3;
 	  var body = {
 			  "result": "done",
 			  "balance" : result,
@@ -28,6 +30,8 @@ app.post("/v1/users/thanks", function(req, res) {
 	  var vote = req.body.vote;
 	  console.log("vote event", id, vote);
 	  //save this data to mongoDB//
+		  result = 2;
+	  result2 = 3;
 	  var body = {
 			  "result": "done",
 			  "balance" : result,
@@ -43,6 +47,8 @@ app.post("/v1/users/transfer", function(req, res) {
 	  var vote = req.body.vote;
 	  console.log("vote event", id, vote);
 	  //save this data to mongoDB//
+		  result = 2;
+	  result2 = 3;
 	  var body = {
 			  "result": "done",
 			  "balance" : result,
@@ -58,6 +64,8 @@ app.post("/v1/users/stake", function(req, res) {
 	  var vote = req.body.vote;
 	  console.log("vote event", id, vote);
 	  //save this data to mongoDB//
+		  result = 2;
+	  result2 = 3;
 	  var body = {
 			  "result": "done",
 			  "balance" : result,
@@ -73,6 +81,8 @@ app.post("/v1/users/unstake", function(req, res) {
 	  var vote = req.body.vote;
 	  console.log("vote event", id, vote);
 	  //save this data to mongoDB//
+		  result = 2;
+	  result2 = 3;
 	  var body = {
 			  "result": "done",
 			  "balance" : result,
@@ -88,6 +98,8 @@ app.get("/v1/users/assets", function(req, res) {
 	  var vote = req.body.vote;
 	  console.log("vote event", id, vote);
 	  //save this data to mongoDB//
+		  result = 2;
+	  result2 = 3;
 	  var body = {
 			  "result": "done",
 			  "balance" : result,
