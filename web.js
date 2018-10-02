@@ -9,9 +9,11 @@ app.use(bodyParser.json());
 
 app.post("/v1/users/link-to-eos-account", function(req, res) { 
 
-	  var id = req.body.id;
+	  var id = req.body.senderId;
+	  var receiver = req.body.name;
+	  var vcode = req.body.verificationCode;
 	  var vote = req.body.vote;
-	  console.log("vote event", id, vote);
+	  console.log("link-to-eos-account event", id, receiver, vote);
 	  //save this data to mongoDB//
 	  result = 2;
 	  result2 = 3;
@@ -21,7 +23,7 @@ app.post("/v1/users/link-to-eos-account", function(req, res) {
 			  "account" : result2
 	  };
 	  
-	  res.send("done");
+	  res.send("202");
 });
 
 app.post("/v1/users/thanks", function(req, res) { 
