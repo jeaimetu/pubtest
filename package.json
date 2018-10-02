@@ -10,7 +10,6 @@
     "node-static":"0.7.10",
     "express-session" : "1.15.6",
     "connect-mongodb-session" : "2.0.3",
-    "bcrypt" : "3.0.0",
     "eosjs"  : "16.0.0",
     "request" : "2.87.0",
     "binaryen" : "37.0.0",
