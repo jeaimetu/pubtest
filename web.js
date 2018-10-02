@@ -9,106 +9,99 @@ app.use(bodyParser.json());
 
 app.post("/v1/users/link-to-eos-account", function(req, res) { 
 
-	  var id = req.body.senderId;
-	  var receiver = req.body.name;
-	  var vcode = req.body.verificationCode;
-	  var vote = req.body.vote;
-	  console.log("link-to-eos-account event", id, receiver, vote);
-	  //save this data to mongoDB//
-	  result = 2;
-	  result2 = 3;
+	  var username = req.body.username;
+	  var eosAccount = req.body.eosAccount;
+
+	  console.log("link-to-eos-account event", username, eosAccount);
+	  ///calling smart contract
+	
 	  var body = {
-			  "result": "202",
-			  "balance" : result,
-			  "account" : result2
+			  "result": "204",
 	  };
 	  
 	  res.send(body);
 });
 
 app.post("/v1/users/thanks", function(req, res) { 
-
-	  var id = req.body.id;
-	  var vote = req.body.vote;
-	  console.log("vote event", id, vote);
+	  var username = req.body.username;
+	  var contentId = req.body.contentId
+	  var ink = req.body.ink
+	  console.log("/v1/users/thanks", username, contentId, ink);
 	  //save this data to mongoDB//
-		  result = 2;
-	  result2 = 3;
 	  var body = {
-			  "result": "done",
-			  "balance" : result,
-			  "account" : result2
+			  "result": "204",
 	  };
 	  
-	  res.send("done");
+	  res.send(body);
 });
 
 app.post("/v1/users/transfer", function(req, res) { 
 
-	  var id = req.body.id;
-	  var vote = req.body.vote;
-	  console.log("vote event", id, vote);
+	  var username = req.body.username;
+	  var isReceiverLinkedToEosAccount = req.body.isReceiverLinkedToEosAccount;
+	  var receiverPublytoUsername = req.body.receiverPublytoUsername;
+	  var receiverEosAccount = req.body.receiverEosAccount;
+	  var amount = req.body.amount;
+	  console.log("/v1/users/transfer", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
-		  result = 2;
-	  result2 = 3;
+
 	  var body = {
-			  "result": "done",
-			  "balance" : result,
-			  "account" : result2
+			  "result": "204",
 	  };
 	  
-	  res.send("done");
+	  res.send(body);
 });
 
 app.post("/v1/users/stake", function(req, res) { 
 
-	  var id = req.body.id;
-	  var vote = req.body.vote;
-	  console.log("vote event", id, vote);
+	  var username = req.body.username;
+	  var isReceiverLinkedToEosAccount = req.body.isReceiverLinkedToEosAccount;
+	  var receiverPublytoUsername = req.body.receiverPublytoUsername;
+	  var receiverEosAccount = req.body.receiverEosAccount;
+	  var amount = req.body.amount;
+	  console.log("/v1/users/stake", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
-		  result = 2;
-	  result2 = 3;
+
 	  var body = {
-			  "result": "done",
-			  "balance" : result,
-			  "account" : result2
+			  "result": "204",
 	  };
 	  
-	  res.send("done");
+	  res.send(body);
 });
 
 app.post("/v1/users/unstake", function(req, res) { 
 
-	  var id = req.body.id;
-	  var vote = req.body.vote;
-	  console.log("vote event", id, vote);
+	  var username = req.body.username;
+	  var isReceiverLinkedToEosAccount = req.body.isReceiverLinkedToEosAccount;
+	  var receiverPublytoUsername = req.body.receiverPublytoUsername;
+	  var receiverEosAccount = req.body.receiverEosAccount;
+	  var amount = req.body.amount;
+	  console.log("/v1/users/unstake", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
-		  result = 2;
-	  result2 = 3;
+
 	  var body = {
-			  "result": "done",
-			  "balance" : result,
-			  "account" : result2
+			  "result": "204",
 	  };
 	  
-	  res.send("done");
+	  res.send(body);
 });
 
 app.get("/v1/users/assets", function(req, res) { 
 
-	  var id = req.body.id;
-	  var vote = req.body.vote;
-	  console.log("vote event", id, vote);
+	  var username = req.body.username;
+	  console.log("/v1/users/assets", username);
 	  //save this data to mongoDB//
-		  result = 2;
-	  result2 = 3;
+
 	  var body = {
-			  "result": "done",
-			  "balance" : result,
-			  "account" : result2
+			  "result": "200",
+			  "isLinkedToEosAccount" : result,
+			  "staked" : 0,
+		  	  "unstaked" : 0,
+		  	  "refund" : 0,
+		  	  "ink" : 0		  
 	  };
 	  
-	  res.send("done");
+	  res.send(body);
 });
 
 
