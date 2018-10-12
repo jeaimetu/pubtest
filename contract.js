@@ -25,7 +25,9 @@ exports.newAccount = function(userid, callback){
 		myaccount.newaccount(userid);
 	}).then((output) => {
 		console.log("success");
+		callback("success");
 	}).catch((err)=>{
 		console.log("fail");
+		callback("fail");
 	});
 }
