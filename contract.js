@@ -23,7 +23,7 @@ exports.getAsset = function(userid, callback){
 exports.newAccount = function(userid, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.newaccount(userid);
+		myaccount.newaccount(userid, options);
 	}).then((output) => {
 		console.log("success");
 		callback("success");
