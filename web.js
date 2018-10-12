@@ -3,6 +3,8 @@ var bodyParser     =        require("body-parser");
 var app = express();
 var path = require('path');
 
+require("./contract");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -33,6 +35,15 @@ app.post("/v1/users/thanks", function(req, res) {
 	  };
 	  
 	  res.send(body);
+});
+
+app.post("/v1/users/newaccount", function(req, res) {
+	contract.newAccount(req.body.username, (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
 });
 
 app.post("/v1/users/transfer", function(req, res) { 
