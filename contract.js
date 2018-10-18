@@ -16,8 +16,85 @@ eos = Eos(config);
 
 const contractOwner = "eoscafekorea";
 
-exports.getAsset = function(userid, callback){
-	console.log("getAsset", userid);
+async function getInternalBalance(account){
+	
+	var body = {
+		"balance" : 0,
+		"staked" : 0,
+		"unstaked" : 0,
+		"refund" : 0,
+		"ink" : 0
+	};
+		
+	let bal = await eos.getTableRows({json : true,
+                 code : contractOwner,
+                 scope: account,
+                 table: "pubtbl",
+                 }).catch((err) => {
+  			return null});
+	
+	if(bal.rows.length != 0){
+		body.balance = bal.rows[0].balance;
+		body.ink = bal.rows[0].ink;
+	}else{
+		console.log("there is no pubtable table for this account", account);
+	}
+	
+	bal = await eos.getTableRows({json : true,
+                 code : contractOwner,
+                 scope: account,
+                 table: "staketbl3",
+                 }).catch((err) => {
+  			return null});
+	
+	if(bal.rows.length != 0){
+		for(i = 0;i<bal.rows.length;i++){
+			let res = bal.rows[i].balance.split("PUB");
+			body.staked += parseInt(res[0], 10);
+		}
+	}else{
+		console.log("there is no stake table for this account", account);
+	}
+	
+	bal = await eos.getTableRows({json : true,
+                 code : contractOwner,
+                 scope: account,
+                 table: "unstaketbl",
+                 }).catch((err) => {
+  			return null});
+	
+	if(bal.rows.length != 0){
+		for(i = 0;i<bal.rows.length;i++){
+			let res = bal.rows[i].balance.split("PUB");
+			body.unstaked += parseInt(res[0], 10);
+		}
+	}else{
+		console.log("there is no unstake table for this account", account);
+	}
+}
+
+async function getExternalBalance(account){
+	let bal = await eos.getTableRows({json : true,
+                 code : contractOwner,
+                 scope: account,
+                 table: "accounts",
+                 }).catch((err) => {
+  			return null});
+	
+	if(bal.rows.length != 0)
+		return bal.rows[0].balance;
+	else
+		return 0;
+}
+
+exports.getAsset = function(account, callback){
+	console.log("getAsset", account);
+	let [internalBalance, externalBalance] = 
+	    await Promise.all([getInternalBalance(account),
+			       getExternalBalance(account)
+			       ]);
+	//internalBalance.balance += externalBalance;
+	callback(internalBalance);
 }
 
 exports.newAccount = function(userid, callback){
