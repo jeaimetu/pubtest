@@ -87,7 +87,7 @@ async function getExternalBalance(account){
 		return 0;
 }
 
-exports.getAsset = function(account, callback){
+exports.getAsset = async function(account, callback){
 	console.log("getAsset", account);
 	let [internalBalance, externalBalance] = 
 	    await Promise.all([getInternalBalance(account),
