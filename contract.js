@@ -26,9 +26,97 @@ exports.newAccount = function(userid, callback){
 		myaccount.newaccount(userid, options);
 	}).then((output) => {
 		console.log("success");
-		callback("success");
+		callback("200");
 	}).catch((err)=>{
 		console.log("fail");
-		callback("fail");
+		callback("409");
 	});
 }
+
+exports.linkAccount = function(username, eosAccount){
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.check(eosAccount, username, "link internal account to external account");
+	}).then((output) => {
+		console.log("success");
+		callback("200");
+	}).catch((err)=>{
+		console.log("fail");
+		callback("409");
+	});
+}
+
+exports.thanks = function(username, contentId, ink){
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.thanks(username, ink + " INK", contentId);
+	}).then((output) => {
+		console.log("success");
+		callback("200");
+	}).catch((err)=>{
+		console.log("fail");
+		callback("409");
+	});
+}
+
+exports.stake = function(from, to, quantity){
+	//internal flag processing
+	//from must be internal or internal info provided
+	//to can be both.
+	let isInternalTo = 1;
+	if(to.indexOf("$") == -1)
+		isInternalTo = 0;
+	
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.stake(from, 1, to, isInternalTo, quantity);
+	}).then((output) => {
+		console.log("success");
+		callback("200");
+	}).catch((err)=>{
+		console.log("fail");
+		callback("409");
+	});
+}
+
+exports.unStake = function(from, to, quantity){
+	//internal flag processing
+	//from must be internal or internal info provided
+	//to can be both.
+	let isInternalTo = 1;
+	if(to.indexOf("$") == -1)
+		isInternalTo = 0;
+	
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.unstake(from, 1, to, isInternalTo, quantity);
+	}).then((output) => {
+		console.log("success");
+		callback("200");
+	}).catch((err)=>{
+		console.log("fail");
+		callback("409");
+	});
+}
+
+exports.pubTransfer = function(from, to, quantity, memo){
+	//internal flag processing
+	let isInternalTo = 1;
+	if(to.indexOf("$") == -1)
+		isInternalTo = 0;
+	let isInternalFrom = 1;
+	if(from.indexOf("$") == -1)
+		isInternalTo = 0;
+	
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.pubtransfer(from, isInternalFrom, to, isInternalTo, quantity, memo);
+	}).then((output) => {
+		console.log("success");
+		callback("200");
+	}).catch((err)=>{
+		console.log("fail");
+		callback("409");
+	});
+}
+
