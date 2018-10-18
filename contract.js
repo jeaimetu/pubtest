@@ -33,7 +33,7 @@ exports.newAccount = function(userid, callback){
 	});
 }
 
-exports.linkAccount = function(username, eosAccount){
+exports.linkAccount = function(username, eosAccount, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.check(eosAccount, username, "link internal account to external account");
@@ -46,7 +46,7 @@ exports.linkAccount = function(username, eosAccount){
 	});
 }
 
-exports.thanks = function(username, contentId, ink){
+exports.thanks = function(username, contentId, ink, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.thanks(username, ink + " INK", contentId);
@@ -59,7 +59,7 @@ exports.thanks = function(username, contentId, ink){
 	});
 }
 
-exports.stake = function(from, to, quantity){
+exports.stake = function(from, to, quantity, callback){
 	//internal flag processing
 	//from must be internal or internal info provided
 	//to can be both.
@@ -79,7 +79,7 @@ exports.stake = function(from, to, quantity){
 	});
 }
 
-exports.unStake = function(from, to, quantity){
+exports.unStake = function(from, to, quantity, callback){
 	//internal flag processing
 	//from must be internal or internal info provided
 	//to can be both.
@@ -99,7 +99,7 @@ exports.unStake = function(from, to, quantity){
 	});
 }
 
-exports.pubTransfer = function(from, to, quantity, memo){
+exports.pubTransfer = function(from, to, quantity, memo, callback){
 	//internal flag processing
 	let isInternalTo = 1;
 	if(to.indexOf("$") == -1)
