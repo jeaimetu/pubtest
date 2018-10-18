@@ -16,6 +16,12 @@ app.post("/v1/users/link-to-eos-account", function(req, res) {
 
 	  console.log("link-to-eos-account event", username, eosAccount);
 	  ///calling smart contract
+	contract.linkAccount (username, eosAccount, (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
 	
 	  var body = {
 			  "result": "204",
@@ -29,6 +35,13 @@ app.post("/v1/users/thanks", function(req, res) {
 	  var contentId = req.body.contentId
 	  var ink = req.body.ink
 	  console.log("/v1/users/thanks", username, contentId, ink);
+	contract.thanks(username, contentId, ink, (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
+	  
 	  //save this data to mongoDB//
 	  var body = {
 			  "result": "204",
@@ -73,12 +86,13 @@ app.post("/v1/users/stake", function(req, res) {
 	  var amount = req.body.amount;
 	  console.log("/v1/users/stake", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
-
-	  var body = {
-			  "result": "204",
-	  };
-	  
-	  res.send(body);
+	
+	contract.stake(username, receiverPublytoUsername, amount + " PUB", (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
 });
 
 app.post("/v1/users/unstake", function(req, res) { 
@@ -90,12 +104,13 @@ app.post("/v1/users/unstake", function(req, res) {
 	  var amount = req.body.amount;
 	  console.log("/v1/users/unstake", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
-
-	  var body = {
-			  "result": "204",
-	  };
-	  
-	  res.send(body);
+	
+	contract.unStake(username, receiverPublytoUsername, amount + " PUB", (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
 });
 
 app.get("/v1/users/assets", function(req, res) { 
