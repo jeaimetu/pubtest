@@ -116,7 +116,7 @@ exports.newAccount = function(userid, callback){
 exports.linkAccount = function(username, eosAccount, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.check(eosAccount, username, "link internal account to external account");
+		myaccount.check(eosAccount, username, "link internal account to external account", options);
 	}).then((output) => {
 		console.log("success");
 		callback("200");
@@ -129,7 +129,7 @@ exports.linkAccount = function(username, eosAccount, callback){
 exports.thanks = function(username, contentId, ink, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.thanks(username, ink + " INK", contentId);
+		myaccount.thanks(username, ink + " INK", contentId, options);
 	}).then((output) => {
 		console.log("success");
 		callback("200");
@@ -149,7 +149,7 @@ exports.stake = function(from, to, quantity, callback){
 	
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.stake(from, 1, to, isInternalTo, quantity);
+		myaccount.stake(from, 1, to, isInternalTo, quantity, options);
 	}).then((output) => {
 		console.log("success");
 		callback("200");
@@ -169,7 +169,7 @@ exports.unStake = function(from, to, quantity, callback){
 	
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.unstake(from, 1, to, isInternalTo, quantity);
+		myaccount.unstake(from, 1, to, isInternalTo, quantity, options);
 	}).then((output) => {
 		console.log("success");
 		callback("200");
@@ -190,7 +190,7 @@ exports.pubTransfer = function(from, to, quantity, memo, callback){
 	
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.pubtransfer(from, isInternalFrom, to, isInternalTo, quantity, memo);
+		myaccount.pubtransfer(from, isInternalFrom, to, isInternalTo, quantity, memo, options);
 	}).then((output) => {
 		console.log("success");
 		callback("200");
