@@ -71,6 +71,8 @@ async function getInternalBalance(account){
 	}else{
 		console.log("there is no unstake table for this account", account);
 	}
+	
+	return body;
 }
 
 async function getExternalBalance(account){
@@ -94,6 +96,7 @@ exports.getAsset = async function(account, callback){
 			       getExternalBalance(account)
 			       ]);
 	//internalBalance.balance += externalBalance;
+	internalBalance.balance += externalBalance;
 	callback(internalBalance);
 }
 
