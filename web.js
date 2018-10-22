@@ -23,11 +23,6 @@ app.post("/v1/users/link-to-eos-account", function(req, res) {
 		res.send(body);
 	});
 	
-	  var body = {
-			  "result": "204",
-	  };
-	  
-	  res.send(body);
 });
 
 app.post("/v1/users/thanks", function(req, res) { 
@@ -42,12 +37,6 @@ app.post("/v1/users/thanks", function(req, res) {
 		res.send(body);
 	});
 	  
-	  //save this data to mongoDB//
-	  var body = {
-			  "result": "204",
-	  };
-	  
-	  res.send(body);
 });
 
 app.post("/v1/users/newaccount", function(req, res) {
