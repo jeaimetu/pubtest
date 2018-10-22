@@ -51,19 +51,15 @@ app.post("/v1/users/newaccount", function(req, res) {
 
 app.post("/v1/users/transfer", function(req, res) { 
 
-	  var username = req.body.username;
-	  var isReceiverLinkedToEosAccount = req.body.isReceiverLinkedToEosAccount;
-	  var receiverPublytoUsername = req.body.receiverPublytoUsername;
-	  var receiverEosAccount = req.body.receiverEosAccount;
+	  var from = req.body.senderName;
+	  var to = req.body.receiverName;
 	  var amount = req.body.amount;
-	  console.log("/v1/users/transfer", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
+	  var memo = req.body.memo;
+	  console.log("/v1/users/transfer", from, to, amount, memo);
 	  //save this data to mongoDB//
-
-	  var body = {
-			  "result": "204",
-	  };
-	  
-	  res.send(body);
+	contract.pubTransfer (from, to, amount, memo, (result) => {
+		res.send(result);
+	});
 });
 
 app.post("/v1/users/stake", function(req, res) { 
