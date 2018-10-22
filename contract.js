@@ -185,9 +185,15 @@ exports.pubTransfer = function(from, to, quantity, memo, callback){
 	let isInternalTo = 1;
 	if(to.indexOf("$") == -1)
 		isInternalTo = 0;
+	else{
+		to = to.substring(1);
+	}
 	let isInternalFrom = 1;
 	if(from.indexOf("$") == -1)
 		isInternalTo = 0;
+	else{
+		from = from.substring(1);
+	}
 	
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
