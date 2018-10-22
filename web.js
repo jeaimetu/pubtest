@@ -115,10 +115,11 @@ app.post("/v1/users/unstake", function(req, res) {
 
 app.post("/v1/users/assets", function(req, res) { 
 
-	  var username = req.body.username;
+	  var iuser = req.body.iuser;
+	  var euser = req.body.euser;
 	  console.log("/v1/users/assets", username);
 	  //save this data to mongoDB//
-	  contract.getAsset(username, (result) => {
+	  contract.getAsset(iuser, euser, (result) => {
 		   res.send(result);
 	  });
 });
