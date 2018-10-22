@@ -147,7 +147,6 @@ exports.stake = function(from, to, quantity, callback){
 	if(to.indexOf("$") == -1)
 		isInternalTo = 0;
 	
-	quantity += " PUB";
 	
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
