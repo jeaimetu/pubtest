@@ -96,7 +96,7 @@ exports.getAsset = async function(account, callback){
 			       getExternalBalance(account)
 			       ]);
 	//internalBalance.balance += externalBalance;
-	internalBalance.balance += externalBalance;
+	internalBalance.balance = parseInt(externalBalance, 10) + parseInt(internalBalance.balance, 10);
 	callback(internalBalance);
 }
 
