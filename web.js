@@ -118,17 +118,9 @@ app.post("/v1/users/assets", function(req, res) {
 	  var username = req.body.username;
 	  console.log("/v1/users/assets", username);
 	  //save this data to mongoDB//
-
-	  var body = {
-			  "result": "200",
-			  "isLinkedToEosAccount" : true,
-			  "staked" : 0,
-		  	  "unstaked" : 0,
-		  	  "refund" : 0,
-		  	  "ink" : 0		  
-	  };
-	  
-	  res.send(body);
+	  contract.getAsset(username, (result) => {
+		   res.send(result);
+	  });
 });
 
 
