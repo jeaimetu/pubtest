@@ -113,7 +113,7 @@ app.post("/v1/users/unstake", function(req, res) {
 	});
 });
 
-app.get("/v1/users/assets", function(req, res) { 
+app.post("/v1/users/assets", function(req, res) { 
 
 	  var username = req.body.username;
 	  console.log("/v1/users/assets", username);
