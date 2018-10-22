@@ -117,7 +117,7 @@ app.post("/v1/users/assets", function(req, res) {
 
 	  var iuser = req.body.iuser;
 	  var euser = req.body.euser;
-	  console.log("/v1/users/assets", username);
+	  console.log("/v1/users/assets", iuser, euser);
 	  //save this data to mongoDB//
 	  contract.getAsset(iuser, euser, (result) => {
 		   res.send(result);
