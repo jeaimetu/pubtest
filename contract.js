@@ -71,6 +71,7 @@ async function getInternalBalance(account){
 			let res = bal.rows[i].balance.split("PUB");
 			body.unstaked += parseInt(res[0], 10);
 		}
+		body.unstaketbl = bal;
 	}else{
 		console.log("there is no unstake table for this account", account);
 	}
