@@ -131,6 +131,19 @@ exports.refund = function(from, to, callback){
 	});
 }
 
+exports.update = function(user, amount, callback){
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.update(user, amount, options);
+	}).then((output) => {
+		console.log("success");
+		callback("200");
+	}).catch((err)=>{
+		console.log("fail");
+		callback("409");
+	});
+}
+
 exports.linkAccount = function(username, eosAccount, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
