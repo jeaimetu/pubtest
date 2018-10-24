@@ -90,7 +90,7 @@ app.post("/v1/users/unstake", function(req, res) {
 	  console.log("/v1/users/unstake", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
 	
-	contract.unStake(username, receiverPublytoUsername, amount + " PUB", (result) => {
+	contract.unStake(username, receiverPublytoUsername, amount, (result) => {
 		var body = {
 			"result" : result
 		};
