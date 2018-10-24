@@ -50,8 +50,18 @@ app.post("/v1/users/newaccount", function(req, res) {
 });
 
 app.post("/v1/users/refund", function(req, res) {
-	console.log("/v1/users/newaccount", req.body.from, req.body.to);
+	console.log("/v1/users/refund", req.body.from, req.body.to);
 	contract.refund(req.body.from, req.body.to,  (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
+});
+
+app.post("/v1/users/update", function(req, res) {
+	console.log("/v1/users/update", req.body.username, req.body.quantity);
+	contract.update(req.body.username, req.body.quantity,  (result) => {
 		var body = {
 			"result" : result
 		};
