@@ -49,6 +49,16 @@ app.post("/v1/users/newaccount", function(req, res) {
 	});
 });
 
+app.post("/v1/users/refund", function(req, res) {
+	console.log("/v1/users/newaccount", req.body.from, req.body.to);
+	contract.refund(req.body.from, req.body.to,  (result) => {
+		var body = {
+			"result" : result
+		};
+		res.send(body);
+	});
+});
+
 app.post("/v1/users/transfer", function(req, res) { 
 
 	  var from = req.body.senderName;
