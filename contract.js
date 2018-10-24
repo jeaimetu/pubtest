@@ -147,7 +147,7 @@ exports.linkAccount = function(username, eosAccount, callback){
 exports.thanks = function(username, contentId, ink, callback){
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.thanks(username, ink + " INK", contentId, options);
+		myaccount.thanks(username, ink, contentId, options);
 	}).then((output) => {
 		console.log("success");
 		callback("200");
