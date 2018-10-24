@@ -195,7 +195,7 @@ exports.pubTransfer = function(from, to, quantity, memo, callback){
 	}
 	let isInternalFrom = 1;
 	if(from.indexOf("$") == -1)
-		isInternalTo = 0;
+		isInternalFrom = 0;
 	else{
 		from = from.substring(1);
 	}
