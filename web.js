@@ -72,7 +72,7 @@ app.post("/v1/users/stake", function(req, res) {
 	  console.log("/v1/users/stake", isReceiverLinkedToEosAccount, receiverPublytoUsername, receiverEosAccount, amount);
 	  //save this data to mongoDB//
 	
-	contract.stake(username, receiverPublytoUsername, amount + " PUB", (result) => {
+	contract.stake(username, receiverPublytoUsername, amount, (result) => {
 		var body = {
 			"result" : result
 		};
