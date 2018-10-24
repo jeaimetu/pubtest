@@ -23,7 +23,9 @@ async function getInternalBalance(account){
 		"staked" : 0,
 		"unstaked" : 0,
 		"refund" : 0,
-		"ink" : 0
+		"ink" : 0,
+		"staketbl" : 0,
+		"unstaketbl" : 0
 	};
 		
 	let bal = await eos.getTableRows({json : true,
@@ -52,6 +54,7 @@ async function getInternalBalance(account){
 			let res = bal.rows[i].balance.split("PUB");
 			body.staked += parseInt(res[0], 10);
 		}
+		body.staketbl = bal;
 	}else{
 		console.log("there is no stake table for this account", account);
 	}
