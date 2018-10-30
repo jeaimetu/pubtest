@@ -120,7 +120,7 @@ app.post("/v1/users/unstake", function(req, res) {
 
 app.post("/v1/users/assets", function(req, res) { 
 
-	  console.log(JSON.stringify(req.headers));
+	  console.log(req.headers.apikey);
 	  var iuser = req.body.iuser;
 	  var euser = req.body.euser;
 	  console.log("/v1/users/assets", iuser, euser);
