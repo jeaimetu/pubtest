@@ -110,67 +110,89 @@ exports.getAsset = async function(iuser, euser, callback){
 }
 
 exports.newAccount = function(userid, callback){
+	
+	var body = {
+		"result" : "200"
+	};
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.newaccount(userid, options);
 	}).then((output) => {
-		console.log("success");
-		callback("200");
+		console.log("success");		
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
 exports.refund = function(from, to, callback){
+	var body = {
+		"result" : "200"
+	};
+	  
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.refund(from, to, options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
 exports.update = function(user, amount, callback){
+	var body = {
+		"result" : "200"
+	};
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.update(user, amount, options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
 exports.linkAccount = function(username, eosAccount, callback){
+	var body = {
+		"result" : "200"
+	};
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.check(eosAccount, username, "link internal account to external account", options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
 exports.thanks = function(username, contentId, ink, callback){
+	var body = {
+		"result" : "200"
+	};
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.thanks(username, ink, contentId, options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
@@ -182,16 +204,20 @@ exports.stake = function(from, to, quantity, callback){
 	if(to.indexOf("$") == -1)
 		isInternalTo = 0;
 	
+	var body = {
+		"result" : "200"
+	};
 	
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.stake(from, 1, to, isInternalTo, quantity, options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
@@ -203,15 +229,19 @@ exports.unStake = function(from, to, quantity, callback){
 	if(to.indexOf("$") == -1)
 		isInternalTo = 0;
 	
+	var body = {
+		"result" : "200"
+	};
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.unstake(from, 1, to, isInternalTo, quantity, options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
@@ -229,16 +259,20 @@ exports.pubTransfer = function(from, to, quantity, memo, callback){
 	else{
 		from = from.substring(1);
 	}
-	
+
+	var body = {
+		"result" : "200"
+	};
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.pubtransfer(from, isInternalFrom, to, isInternalTo, quantity, memo, options);
 	}).then((output) => {
 		console.log("success");
-		callback("200");
+		callback(body);
 	}).catch((err)=>{
 		console.log("fail");
-		callback("409");
+		body.result = "409";
+		callback(body);
 	});
 }
 
