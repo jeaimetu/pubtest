@@ -102,11 +102,10 @@ exports.getAsset = async function(iuser, euser, callback){
 	//internalBalance.balance += externalBalance;
 	internalBalance.balance = parseInt(externalBalance, 10) + parseInt(internalBalance.balance, 10);
 	//adding unit "PUB"
-	internalBalance.balance = internalBalance.balance.toFixed(4);
-	internalBalance.balance += " PUB";
-	internalBalance.staked += " PUB";
-	internalBalance.unstaked += " PUB";
-	internalBalance.refund += " PUB";
+	internalBalance.balance = internalBalance.balance.toFixed(4) + " PUB";
+	internalBalance.staked = internalBalance.staked.toFixed(4) + " PUB";
+	internalBalance.unstaked = internalBalance.unstaked.toFixed(4) + " PUB";
+	internalBalance.refund = internalBalance.refund.toFixed(4) + " PUB";
 	callback(internalBalance);
 }
 
