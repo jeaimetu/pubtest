@@ -8,6 +8,15 @@ const contract = require("./contract");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(function (err, req, res, next) {
+	if(req.headers.apikey == "1234")
+		next();
+	else{
+  		console.error(err.stack)
+  		res.status(500).send('Magic code is different')
+	}
+})
+
 
 app.post("/v1/users/link-to-eos-account", function(req, res) { 
 
