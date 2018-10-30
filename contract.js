@@ -69,7 +69,7 @@ async function getInternalBalance(account){
 	if(bal.rows.length != 0){
 		for(i = 0;i<bal.rows.length;i++){
 			let res = bal.rows[i].balance.split("PUB");
-			body.unstaked += parseFloat(res[0]).toFixed(4);
+			body.unstaked = parseFloat(body.unstaked).toFixed(4) + parseFloat(res[0]).toFixed(4);
 		}
 		body.unstaketbl = bal;
 	}else{
