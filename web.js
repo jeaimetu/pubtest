@@ -9,10 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(function (err, req, res, next) {
-	if(req.headers.apikey == "1234")
+	if(req.headers.apikey == "1234"){
+		console.log("auth success");
 		next();
-	else{
-  		console.error(err.stack)
+	}	else{
+  		console.log("auth fail");
   		res.status(500).send('Magic code is different')
 	}
 })
