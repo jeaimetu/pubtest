@@ -52,7 +52,7 @@ async function getInternalBalance(account){
 	if(bal.rows.length != 0){
 		for(i = 0;i<bal.rows.length;i++){
 			let res = bal.rows[i].balance.split("PUB");
-			body.staked += parseInt(res[0], 10);
+			body.staked += parseFloat(res[0]).toFixed(4);
 		}
 		body.staketbl = bal;
 	}else{
@@ -69,7 +69,7 @@ async function getInternalBalance(account){
 	if(bal.rows.length != 0){
 		for(i = 0;i<bal.rows.length;i++){
 			let res = bal.rows[i].balance.split("PUB");
-			body.unstaked += parseInt(res[0], 10);
+			body.unstaked += parseFloat(res[0]).toFixed(4);
 		}
 		body.unstaketbl = bal;
 	}else{
