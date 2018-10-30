@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(function (err, req, res, next) {
+	console.log("authentication check");
 	if(req.headers.apikey == "1234"){
 		console.log("auth success");
 		next();
