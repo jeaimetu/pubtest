@@ -8,14 +8,14 @@ const contract = require("./contract");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(function (err, req, res, next) {
+app.use(function (req, res, next) {
 	console.log("authentication check");
 	if(req.headers.apikey == "1234"){
 		console.log("auth success");
-		next();
-	}	else{
+		return next();
+	}else{
   		console.log("auth fail");
-  		res.status(500).send('Magic code is different')
+  		return res.status(500).send('Magic code is different')
 	}
 })
 
