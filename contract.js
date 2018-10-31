@@ -100,7 +100,7 @@ exports.getAsset = async function(iuser, euser, callback){
 			       getExternalBalance(euser)
 			       ]);
 	//internalBalance.balance += externalBalance;
-	internalBalance.balance = parseInt(externalBalance, 10) + parseInt(internalBalance.balance, 10);
+	internalBalance.balance = parseFloat(externalBalance, 10) + parseFloat(internalBalance.balance, 10);
 	//adding unit "PUB"
 	internalBalance.balance = internalBalance.balance.toFixed(4) + " PUB";
 	internalBalance.staked = internalBalance.staked.toFixed(4) + " PUB";
