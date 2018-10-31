@@ -42,10 +42,7 @@ app.post("/v1/users/thanks", function(req, res) {
 	  var ink = req.body.ink
 	  console.log("/v1/users/thanks", username, contentId, ink);
 	contract.thanks(username, contentId, ink, (result) => {
-		var body = {
-			"result" : result
-		};
-		res.send(body);
+		res.send(result);
 	});
 	  
 });
@@ -53,30 +50,21 @@ app.post("/v1/users/thanks", function(req, res) {
 app.post("/v1/users/newaccount", function(req, res) {
 	console.log("/v1/users/newaccount", req.body.username);
 	contract.newAccount(req.body.username, (result) => {
-		var body = {
-			"result" : result
-		};
-		res.send(body);
+		res.send(result);
 	});
 });
 
 app.post("/v1/users/refund", function(req, res) {
 	console.log("/v1/users/refund", req.body.from, req.body.to);
 	contract.refund(req.body.from, req.body.to,  (result) => {
-		var body = {
-			"result" : result
-		};
-		res.send(body);
+		res.send(result);
 	});
 });
 
 app.post("/v1/users/update", function(req, res) {
 	console.log("/v1/users/update", req.body.username, req.body.quantity);
 	contract.update(req.body.username, req.body.quantity,  (result) => {
-		var body = {
-			"result" : result
-		};
-		res.send(body);
+		res.send(result);
 	});
 });
 
@@ -104,10 +92,7 @@ app.post("/v1/users/stake", function(req, res) {
 	  //save this data to mongoDB//
 	
 	contract.stake(username, receiverPublytoUsername, amount, (result) => {
-		var body = {
-			"result" : result
-		};
-		res.send(body);
+		res.send(result);
 	});
 });
 
@@ -122,10 +107,7 @@ app.post("/v1/users/unstake", function(req, res) {
 	  //save this data to mongoDB//
 	
 	contract.unStake(username, receiverPublytoUsername, amount, (result) => {
-		var body = {
-			"result" : result
-		};
-		res.send(body);
+		res.send(result);
 	});
 });
 
