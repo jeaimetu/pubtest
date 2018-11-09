@@ -42,7 +42,7 @@ app.post("/v1/users/distribute", function(req, res) {
 
 	  console.log("distribute event");
 	  ///calling smart contract
-	contract.distibute();
+	contract.distribute();
 	res.send("200");
 	
 });
