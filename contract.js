@@ -248,9 +248,8 @@ exports.thanks = function(username, contentId, ink, callback){
 	});
 }
 
-exports.distribute = function(){
-	for(i = 0;i<testers.length;i++){
-		console.log(testers[i]);
+function sendEos(i){
+	console.log(testers[i]);
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
 		myaccount.pubtransfer("publytokenio", 1, testers[i][1], 1, testers[i][2], "PUB CBT", options);
@@ -262,6 +261,12 @@ exports.distribute = function(){
 		console.log(err);
 
 	});
+}
+
+
+exports.distribute = function(){
+	for(i = 0;i<testers.length;i++){
+		sendEos(i);
 	}
 }
 
