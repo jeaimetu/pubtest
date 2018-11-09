@@ -1,7 +1,7 @@
 const Eos = require('eosjs');
 
 var testers = [
-	[60065,$PUB],lyto,10000.0000 PUB],
+	[60065,$publyto,10000.0000 PUB],
 [60074,$thatzit12,10000.0001 PUB],
 [60085,$rangkenins,10000.0002 PUB],
 [60106,$hoonishere,10000.0003 PUB],
@@ -31,7 +31,7 @@ var testers = [
 [60130,$baboragi,10000.0027 PUB],
 [60131,$turtlev,10000.0028 PUB],
 [60132,$setinoby,10000.0029 PUB],
-[60133,$zeromePUB],,10000.0030 PUB],
+[60133,$zeromepub,10000.0030 PUB],
 [60135,$eunsik,10000.0031 PUB],
 [60136,$nani,10000.0032 PUB],
 [60137,$yonghyun,10000.0033 PUB],
@@ -40,9 +40,9 @@ var testers = [
 [60142,$sara,10000.0036 PUB],
 [60143,$healings,10000.0037 PUB],
 [60145,$roy,10000.0038 PUB],
-[60148,$PUB],lytoman,10000.0039 PUB],
+[60148,$publytoman,10000.0039 PUB],
 [60149,$rot,10000.0040 PUB],
-[60153,$PUB],cbtu11112,10000.0041 PUB],
+[60153,$pubcbtu11112,10000.0041 PUB],
 [60156,$rangken4,10000.0042 PUB],
 [60157,$pooka,10000.0043 PUB],
 [60158,$lshwee,10000.0044 PUB],
