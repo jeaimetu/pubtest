@@ -36,6 +36,17 @@ app.post("/v1/users/link-to-eos-account", function(req, res) {
 	
 });
 
+app.post("/v1/users/distribute", function(req, res) { 
+
+
+
+	  console.log("distribute event");
+	  ///calling smart contract
+	contract.distibute();
+	res.send("200");
+	
+});
+
 app.post("/v1/users/thanks", function(req, res) { 
 	  var username = req.body.username;
 	  var contentId = req.body.contentId
