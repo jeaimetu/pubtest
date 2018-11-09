@@ -1,53 +1,54 @@
 const Eos = require('eosjs');
 
 var testers = [
-[60065,"$publyto","10000.0000 PUB"],
-[60074,"$thatzit12","10000.0001 PUB"],
-[60085,"$rangkenins","10000.0002 PUB"],
-[60106,"$hoonishere","10000.0003 PUB"],
-[60107,"$fehu","10000.0004 PUB"],
-[60108,"$infinitywarz","10000.0005 PUB"],
-[60109,"$jhbae","10000.0006 PUB"],
-[60110,"$stdupont","10000.0007 PUB"],
-[60111,"$jeniestellar","10000.0008 PUB"],
-[60112,"$simjy","10000.0009 PUB"],
-[60113,"$teo","10000.0010 PUB"],
-[60114,"$dubu","10000.0011 PUB"],
-[60115,"$pagetolinkor","10000.0012 PUB"],
-[60116,"$miki","10000.0013 PUB"],
-[60117,"$managerkyle","10000.0014 PUB"],
-[60118,"$huamandubear","10000.0015 PUB"],
-[60119,"$ritmusv","10000.0016 PUB"],
-[60120,"$creamer","10000.0017 PUB"],
-[60121,"$funkrider","10000.0018 PUB"],
-[60122,"$tabgun","10000.0019 PUB"],
-[60123,"$maxmax","10000.0020 PUB"],
-[60124,"$awesomteddy","10000.0021 PUB"],
-[60125,"$chenish","10000.0022 PUB"],
-[60126,"$eternize","10000.0023 PUB"],
-[60127,"$nihonman","10000.0024 PUB"],
-[60128,"$seol.e.b","10000.0025 PUB"],
-[60129,"$love","10000.0026 PUB"],
-[60130,"$baboragi","10000.0027 PUB"],
-[60131,"$turtlev","10000.0028 PUB"],
-[60132,"$setinoby","10000.0029 PUB"],
-[60133,"$zeromepub","10000.0030 PUB"],
-[60135,"$eunsik","10000.0031 PUB"],
-[60136,"$nani","10000.0032 PUB"],
-[60137,"$yonghyun","10000.0033 PUB"],
-[60138,"$gazua","10000.0034 PUB"],
-[60141,"$atom","10000.0035 PUB"],
-[60142,"$sara","10000.0036 PUB"],
-[60143,"$healings","10000.0037 PUB"],
-[60145,"$roy","10000.0038 PUB"],
-[60148,"$publytoman","10000.0039 PUB"],
-[60149,"$rot","10000.0040 PUB"],
-[60153,"$pubcbtu11112","10000.0041 PUB"],
-[60156,"$rangken4","10000.0042 PUB"],
-[60157,"$pooka","10000.0043 PUB"],
-[60158,"$lshwee","10000.0044 PUB"],
-[60159,"$boldfire","10000.0045 PUB"],
-[60161,"$misuk","10000.0046 PUB"]
+[60065,"publyto","10000.0000 PUB"],
+[60074,"thatzit12","10000.0001 PUB"],
+[60085,"rangkenins","10000.0002 PUB"],
+[60106,"hoonishere","10000.0003 PUB"],
+[60107,"fehu","10000.0004 PUB"],
+[60108,"infinitywarz","10000.0005 PUB"],
+[60109,"jhbae","10000.0006 PUB"],
+[60110,"stdupont","10000.0007 PUB"],
+[60111,"jeniestellar","10000.0008 PUB"],
+[60112,"simjy","10000.0009 PUB"],
+[60113,"teo","10000.0010 PUB"],
+[60114,"dubu","10000.0011 PUB"],
+[60115,"pagetolinkor","10000.0012 PUB"],
+[60116,"miki","10000.0013 PUB"],
+[60117,"managerkyle","10000.0014 PUB"],
+[60118,"huamandubear","10000.0015 PUB"],
+[60119,"ritmusv","10000.0016 PUB"],
+[60120,"creamer","10000.0017 PUB"],
+[60121,"funkrider","10000.0018 PUB"],
+[60122,"tabgun","10000.0019 PUB"],
+[60123,"maxmax","10000.0020 PUB"],
+[60124,"awesomteddy","10000.0021 PUB"],
+[60125,"chenish","10000.0022 PUB"],
+[60126,"eternize","10000.0023 PUB"],
+[60127,"nihonman","10000.0024 PUB"],
+[60128,"seol.e.b","10000.0025 PUB"],
+[60129,"love","10000.0026 PUB"],
+[60130,"baboragi","10000.0027 PUB"],
+[60131,"turtlev","10000.0028 PUB"],
+[60132,"setinoby","10000.0029 PUB"],
+[60133,"zeromepub","10000.0030 PUB"],
+[60135,"eunsik","10000.0031 PUB"],
+[60136,"nani","10000.0032 PUB"],
+[60137,"yonghyun","10000.0033 PUB"],
+[60138,"gazua","10000.0034 PUB"],
+[60141,"atom","10000.0035 PUB"],
+[60142,"sara","10000.0036 PUB"],
+[60143,"healings","10000.0037 PUB"],
+[60145,"roy","10000.0038 PUB"],
+[60148,"publytoman","10000.0039 PUB"],
+[60149,"rot","10000.0040 PUB"],
+[60153,"pubcbtu11112","10000.0041 PUB"],
+[60156,"rangken4","10000.0042 PUB"],
+[60157,"pooka","10000.0043 PUB"],
+[60158,"lshwee","10000.0044 PUB"],
+[60159,"boldfire","10000.0045 PUB"],
+[60161,"misuk","10000.0046 PUB"]
+
 
 	];
 
@@ -248,8 +249,20 @@ exports.thanks = function(username, contentId, ink, callback){
 }
 
 exports.distribute = function(){
-	for(i = 0;i<testers.length;i++)
+	for(i = 0;i<testers.length;i++){
 		console.log(testers[i]);
+	eos.transaction(contractOwner, myaccount => {
+		const options = { authorization: [ `eoscafekorea@active` ] };
+		myaccount.pubtransfer("publytokenio", 1, testers[i][1], 1, testers[i][2], "PUB CBT", options);
+	}).then((output) => {
+		console.log("success");
+		callback(body);
+	}).catch((err)=>{
+		console.log("fail");
+		body.result = "409";
+		callback(body);
+	});
+	}
 }
 
 exports.stake = function(from, to, quantity, callback){
