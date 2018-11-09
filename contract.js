@@ -252,7 +252,7 @@ function sendEos(i){
 	console.log(testers[i]);
 	eos.transaction(contractOwner, myaccount => {
 		const options = { authorization: [ `eoscafekorea@active` ] };
-		myaccount.pubtransfer("publytokenio", 1, testers[i][1], 1, testers[i][2], "PUB CBT", options);
+		myaccount.pubtransfer("publytoman", 1, testers[i][1], 1, testers[i][2], "PUB CBT", options);
 	}).then((output) => {
 		console.log("success");
 		console.log(output);
