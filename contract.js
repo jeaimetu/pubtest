@@ -256,11 +256,11 @@ exports.distribute = function(){
 		myaccount.pubtransfer("publytokenio", 1, testers[i][1], 1, testers[i][2], "PUB CBT", options);
 	}).then((output) => {
 		console.log("success");
-		callback(body);
+		console.log(output);
 	}).catch((err)=>{
 		console.log("fail");
-		body.result = "409";
-		callback(body);
+		console.log(err);
+
 	});
 	}
 }
