@@ -248,7 +248,7 @@ exports.thanks = function(username, contentId, ink, callback){
 }
 
 exports.distribute = function(){
-	for(i = 0;i<testers.length;<i++)
+	for(i = 0;i<testers.length;i++)
 		console.log(testers[i]);
 }
 
