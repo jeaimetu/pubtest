@@ -247,6 +247,11 @@ exports.thanks = function(username, contentId, ink, callback){
 	});
 }
 
+exports.distribute = function(){
+	for(i = 0;i<testers.length;<i++)
+		console.log(testers[i]);
+}
+
 exports.stake = function(from, to, quantity, callback){
 	//internal flag processing
 	//from must be internal or internal info provided
